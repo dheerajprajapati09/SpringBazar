@@ -32,7 +32,8 @@ public class SecurityConfig {
                 .headers(headers -> headers.frameOptions(frame -> frame.sameOrigin()))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/login","/orders/place", "/api/register", "/products/add", "/products/all","/products/delete","/api/me", "/products/search/**","/refresh-token").permitAll()
+                        .requestMatchers("/api/login","/orders/place", "/api/register", "/products/add",
+                                "/products/update/**","/products/all","/products/delete","/api/me", "/products/search/**","/refresh-token").permitAll()
 
                         .anyRequest().authenticated()
                 )
